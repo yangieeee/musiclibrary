@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Music Library</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+   
+    
+    <!-- Music Library Table -->
+    <div id="musicLibrary">Loading music library...</div>
+
+    <!-- XPath Query Input Positioned at Bottom Right -->
+    <div class="xpath-container">
+        <label for="xpathQuery"><strong>Enter XPath Expression:</strong></label><br>
+        <input type="text" id="xpathQuery" placeholder="//song[some condition]">
+        <button onclick="runXPath()">Execute</button>
+        <div id="results"></div>
+    </div>
+
+    <script>
+        function loadXMLDoc(filename, callback) {
+            let xhttp = new XMLHttpRequest();
+            xhttp.open("GET", filename, true);
+            xhttp.onreadystatechange = function () {
+                if (xhttp.readyState == 4 && xhttp.status == 200) {
+                    callback(xhttp.responseXML);
+                }
+            };
+            xhttp.send();
+        }
+
+        function applyXSLT() {
+            loadXMLDoc("music.xml", function(xml) {
+                loadXMLDoc("music.xsl", function(xsl) {
+                    if (document.implementation && document.implementation.createDocument) {
+                        let xsltProcessor = new XSLTProcessor();
+                        xsltProcessor.importStylesheet(xsl);
+                        let resultDocument = xsltProcessor.transformToFragment(xml, document);
+                        document.getElementById("musicLibrary").innerHTML = "";
+                        document.getElementById("musicLibrary").appendChild(resultDocument);
+                    } else {
+                        document.getElementById("musicLibrary").innerHTML = "XSLT not supported in your browser.";
+                    }
+                });
+            });
+        }
+
+        function runXPath() {
+            let query = document.getElementById("xpathQuery").value.trim();
+            let resultsDiv = document.getElementById("results");
+            resultsDiv.innerHTML = ""; // Clear previous results
+
+            loadXMLDoc("music.xml", function(xmlDoc) {
+                try {
+                    let resultList = [];
+                    let nodes = xmlDoc.evaluate(query, xmlDoc, null, XPathResult.ANY_TYPE, null);
+                    let result = nodes.iterateNext();
+
+                    while (result) {
+                        resultList.push(result.textContent);
+                        result = nodes.iterateNext();
+                    }
+
+                    if (resultList.length === 0) {
+                        resultsDiv.innerHTML = "<p>No results found.</p>";
+                    } else {
+                        resultsDiv.innerHTML = resultList.map(item => `<p>${item}</p>`).join("");
+                    }
+
+                } catch (error) {
+                    resultsDiv.innerHTML = "<p class='error'>XPath expression is not valid.</p>";
+                }
+            });
+        }
+
+        // Load and apply XSLT when the page loads
+        window.onload = function() {
+            applyXSLT();
+        };
+    </script>
+</body>
+</html>

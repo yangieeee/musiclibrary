@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<music>
+    <song id="1">
+        <songTitle>First Love</songTitle>
+        <artist>Hikaru Utada</artist>
+        <albums>
+            <album>First Love</album>
+            <album>Utada Hikaru Single Collection Vol.1</album>
+            <album>Ballad Best</album>
+        </albums>
+        <debutYear>1999</debutYear>
+    </song>
+    
+    <song id="2">
+        <songTitle>Lemon</songTitle>
+        <artist>Kenshi Yonezu</artist>
+        <albums>
+            <album>Lemon (Single)</album>
+            <album>Bootleg</album>
+        </albums>
+        <debutYear>2018</debutYear>
+    </song>
+    
+    <song id="3">
+        <songTitle>Pretender</songTitle>
+        <artist>Official HIGE DANDism</artist>
+        <albums>
+            <album>Traveler</album>
+        </albums>
+        <debutYear>2019</debutYear>
+    </song>
+    
+    <song id="4">
+        <songTitle>Blue Bird</songTitle>
+        <artist>Ayumi Hamasaki</artist>
+        <albums>
+            <album>Secret</album>
+            <album>A Best 2 - White</album>
+        </albums>
+        <debutYear>2006</debutYear>
+    </song>
+    
+    <song id="5">
+        <songTitle>Secret Base ~Kimi ga Kureta Mono~</songTitle>
+        <artist>ZONE</artist>
+        <albums>
+            <album>Z</album>
+            <album>ZONE Final</album>
+        </albums>
+        <debutYear>2001</debutYear>
+    </song>
+
+    <song id="6">
+        <songTitle>Uchiage Hanabi</songTitle>
+        <artist>DAOKO × Kenshi Yonezu</artist>
+        <albums>
+            <album>Fireworks OST</album>
+            <album>DAOKO</album>
+        </albums>
+        <debutYear>2017</debutYear>
+    </song>
+
+    <song id="7">
+        <songTitle>Gurenge</songTitle>
+        <artist>LiSA</artist>
+        <albums>
+            <album>Gurenge (Single)</album>
+            <album>LEO-NiNE</album>
+        </albums>
+        <debutYear>2019</debutYear>
+    </song>
+
+    <song id="8">
+        <songTitle>Unravel</songTitle>
+        <artist>TK from Ling Tosite Sigure</artist>
+        <albums>
+            <album>Fantastic Magic</album>
+        </albums>
+        <debutYear>2014</debutYear>
+    </song>
+
+    <song id="9">
+        <songTitle>Sign</songTitle>
+        <artist>FLOW</artist>
+        <albums>
+            <album>Sign (Single)</album>
+            <album>FLOW Anime Best</album>
+        </albums>
+        <debutYear>2010</debutYear>
+    </song>
+
+    <song id="10">
+        <songTitle>Stay With Me</songTitle>
+        <artist>Miki Matsubara</artist>
+        <albums>
+            <album>Pocket Park</album>
+        </albums>
+        <debutYear>1979</debutYear>
+    </song>
+</music>
